@@ -1,0 +1,30 @@
+{
+  "name": "Haryana Roadways Saarthi",
+  "short_name": "HR Roadways",
+  "description": "Scheduled timetable lookup and route guide for Haryana State Transport buses.",
+  "start_url": "/",
+  "id": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#0d1c3a",
+  "dir": "ltr",
+  "categories": [
+    "travel"
+  ],
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
