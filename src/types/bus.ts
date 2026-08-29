@@ -1,39 +1,56 @@
-export type BusCategory = 'ALL' | 'ORDINARY' | 'HVAC' | 'VOLVO';
-
 export type Language = 'en' | 'hi';
 
-export interface RouteStop {
-  stopNameEn: string;
-  stopNameHi: string;
-  arrivalTime: string;
-  departureTime: string;
-  distanceKm: number;
+export type FleetType = 'ORDINARY' | 'HVAC' | 'VOLVO';
+export type BusCategory = FleetType;
+
+export interface IntermediateStop {
+  name: string;
+  nameHi?: string;
+  time: string;
+  fareFromOrigin?: number;
+  fare?: number;
 }
 
-export interface BusSchedule {
+export interface BusService {
   id: string;
-  busNumber: string;
-  depotEn: string;
-  depotHi: string;
-  originEn: string;
-  originHi: string;
-  destinationEn: string;
-  destinationHi: string;
-  category: 'ORDINARY' | 'HVAC' | 'VOLVO';
-  departureTime: string; // HH:mm
-  arrivalTime: string;   // HH:mm
-  duration: string;
+  busNumber?: string;
+  depotId: string;
+  depotName?: string;
+  depotNameHi?: string;
+  origin: string;
+  originHi?: string;
+  destination: string;
+  destinationHi?: string;
+  departureTime?: string;
+  departure?: string;
+  arrivalTime?: string;
+  arrival?: string;
+  fleetType?: FleetType;
+  category?: FleetType;
   fare: number;
-  frequencyEn: string;
-  frequencyHi: string;
-  runsOnDays: number[]; // 0 for Sun, 1 for Mon, etc. Empty means all days
-  viaStops: RouteStop[];
+  routeVia?: string[];
+  routeViaHi?: string[];
+  via?: string | string[];
+  intermediateStops?: IntermediateStop[];
+  helpline?: string;
+  frequency?: string;
+  operatingDays?: string[];
 }
 
-export interface SearchParams {
-  origin: string;
-  destination: string;
-  category: BusCategory;
-  travelDate: string; // YYYY-MM-DD
-  sortBy: 'EARLIEST' | 'SHORTEST' | 'FARE_LOW';
+export type BusSchedule = BusService;
+
+export interface Depot {
+  id: string;
+  name: string;
+  nameHi?: string;
+  contactNumber?: string;
+  address?: string;
+  totalBuses?: number;
+}
+
+export interface DepotHelpline {
+  depot: string;
+  depotHi?: string;
+  phone: string;
+  location?: string;
 }
